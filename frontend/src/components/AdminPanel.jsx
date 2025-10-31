@@ -38,7 +38,7 @@ const AdminPanel = () => {
 
   const fetchExperiences = async () => {
     try {
-      const response = await axios.get('/api/experiences');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/experiences`);
       setExperiences(response.data.data || []);
     } catch (error) {
       console.error('Error fetching experiences:', error);
@@ -72,7 +72,7 @@ const AdminPanel = () => {
         reviewCount: 0
       };
 
-      await axios.post('/api/admin/experiences', experienceData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/experiences`, experienceData);
       alert('✅ Experience added successfully!');
       setShowForm(false);
       fetchExperiences();
