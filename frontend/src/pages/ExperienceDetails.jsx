@@ -19,7 +19,7 @@ const ExperienceDetails = () => {
 
   const fetchExperience = async () => {
     try {
-      const response = await axios.get(`/api/experiences/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/experiences/${id}`);
       setExperience(response.data.data);
     } catch (error) {
       console.error('Error fetching experience:', error);

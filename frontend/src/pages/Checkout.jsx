@@ -45,7 +45,7 @@ const Checkout = () => {
     if (!promoCode.trim()) return;
 
     try {
-      const response = await axios.post("/api/promo/validate", {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/promo/validate`, {
         code: promoCode,
         totalAmount: subtotal,
       });
@@ -65,7 +65,7 @@ const Checkout = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/bookings", {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, {
         experienceId: bookingData.experienceId,
         slotDate: bookingData.slotDate,
         slotStartTime: bookingData.slotStartTime,

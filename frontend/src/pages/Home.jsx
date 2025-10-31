@@ -13,7 +13,8 @@ const Home = () => {
 
   const fetchExperiences = async () => {
     try {
-      const response = await axios.get('/api/experiences');
+      //const response = await axios.get('/api/experiences');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/experiences`);
       if (response.data && response.data.data) {
         setExperiences(response.data.data);
       } else if (Array.isArray(response.data)) {
